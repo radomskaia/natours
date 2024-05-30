@@ -7,25 +7,9 @@ Dark green: #28b485
 
 */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-family: Lato, sans-serif;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 1.6;
-    color: #777;
-    padding: 3.0rem;
-}
-
+/******************/
+/* HEADER SECTION */
+/******************/
 .header {
     height: 95vh;
     background-image: linear-gradient(
@@ -37,9 +21,7 @@ body {
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95vh);
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .logo-box {
@@ -52,28 +34,52 @@ body {
     height: 3.5rem;
 }
 
-.heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+.tex-box {
+    text-align: center;
 }
 
 .heading-primary-main {
-    display: block;
-    text-align: center;
-    font-size: 6.4rem;
+    font-size: 6rem;
     letter-spacing: 3.5rem;
-    font-weight: 600;
-
+    animation: moveInLeft 1s ease-out;
 }
 
 .heading-primary-sub {
-    display: block;
-    text-align: center;
-    font-size: 3.2rem;
-    letter-spacing: 17.4px;
+    font-size: 2rem;
+    letter-spacing: 1.74rem;
     font-weight: 600;
+    animation: moveInRight 1s ease-out;
+    margin-bottom: 6rem;
 }
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 30rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.5) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInDown 0.5s ease-out 0.75s backwards;
+}
+
+
+
+
