@@ -1,3 +1,8 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
 body {
   font-family: Lato, sans-serif;
   font-weight: 400;
@@ -26,5 +31,38 @@ body {
     font-weight: 600;
     animation: moveInRight 1s ease-out;
     margin-bottom: 6rem;
+  }
+}
+
+.heading-secondary {
+  display: inline-block;
+
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  background-image: linear-gradient(to right, $color-primary-light, $color-gray-dark);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  transition: all .2s ease-out;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
   }
 }

@@ -1,3 +1,8 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
 .btn {
   &:link,
   &:visited {
@@ -52,6 +57,34 @@
 
   &--animated {
     animation: moveInDown 0.5s ease-out 0.75s backwards;
+  }
+
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    display: inline-block;
+
+    text-decoration: none;
+    color: $color-primary;
+    padding: 0.3rem;
+    border-bottom: 1px solid $color-primary;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
   }
 
 }
