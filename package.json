@@ -1,0 +1,14 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass assets/sass/main.scss assets/css/main.css -w"
+  },
+  "author": "ARadomskaiaa",
+  "license": "ISC",
+  "description": "Landing page for natours",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

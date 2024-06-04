@@ -1,0 +1,30 @@
+body {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: $color-gray-dark;
+  padding: 3.0rem;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  @extend %flex-col, %flex-center;
+
+  &--main {
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    font-size: 2rem;
+    letter-spacing: 1.74rem;
+    font-weight: 600;
+    animation: moveInRight 1s ease-out;
+    margin-bottom: 6rem;
+  }
+}
