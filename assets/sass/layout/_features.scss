@@ -1,0 +1,49 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
+.section-features {
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)),
+  url('../img/nat-4.jpg');
+  background-size: cover;
+  transform: skewY(-7deg);
+
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  padding: 20rem 0;
+  margin-top: -10rem;
+
+  transition: all .3s ease-out;
+}
+
+.features-box {
+  max-width: $max-width;
+  @include grid(4);
+  margin: 0 auto;
+}
+
+.features-card {
+  padding: 2.5rem;
+  background-color: rgba($color-white, 0.8);
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  @extend %text-align;
+
+  &__icon {
+    font-size: 6rem;
+    color: $color-primary-dark;
+    @include text-gradient($color-primary-light, $color-primary);
+    padding-top: .5rem;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+    box-shadow: 0 3rem 4rem rgba($color-black, 0.15);
+  }
+}

@@ -15,14 +15,9 @@
 }
 
 .box-about {
-  max-width: 114rem;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 6rem;
+  max-width: $max-width;
+  @include grid();
   justify-self: center;
-  justify-items: center;
-
 }
 
 .img-box {
