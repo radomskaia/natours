@@ -1,0 +1,151 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
+.section-tours {
+  background-color: $color-gray-light-1;
+  padding: 25rem 0;
+  margin-top: -10rem;
+
+  @extend %flex-col;
+  @extend %flex-center;
+  gap: 8rem;
+}
+
+.tours-box {
+  width: 100%;
+  @include grid(3);
+}
+
+.card {
+  height: 52rem;
+  width: 100%;
+
+  position: relative;
+
+  perspective: 150rem;
+  -webkit-perspective: 150rem;
+
+  &:nth-child(1) {
+    .card-picture,
+    .card__side--back {
+      @include background-gradient($color-secondary-light, $color-secondary-dark, '../img/nat-5.jpg');
+    }
+
+    .card__heading-span {
+      @include background-gradient(rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
+    }
+  }
+
+  &:nth-child(2) {
+    .card-picture,
+    .card__side--back {
+      @include background-gradient($color-primary-light,
+              $color-primary-dark, '../img/nat-6.jpg');
+    }
+
+    .card__heading-span {
+      @include background-gradient(rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+    }
+  }
+
+  &:nth-child(3) {
+    .card-picture,
+    .card__side--back {
+      @include background-gradient($color-tertiary-light, $color-tertiary-dark, '../img/nat-7.jpg');
+    }
+
+    .card__heading-span {
+      @include background-gradient(rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
+    }
+  }
+
+  &-picture {
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    text-align: right;
+
+    width: 75%;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  &__details {
+    padding: 3rem;
+
+    & ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        padding: 1rem;
+        font-size: 1.5rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light-2;
+        }
+      }
+    }
+  }
+
+  &__side {
+    border-radius: 3px;
+    overflow: hidden;
+    @extend %text-align;
+    height: 100%;
+    width: 100%;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--back {
+      @extend %flex-center, %flex-col;
+      gap: 8rem;
+      height: 100%;
+      transform: rotateY(180deg);
+
+      .card__price-box {
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+
+        &_value {
+          font-size: 6rem;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+
+  &:hover {
+    & .card__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    .card__side--back {
+      transform: rotateY(0deg);
+    }
+  }
+}
+
+
