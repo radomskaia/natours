@@ -1,0 +1,130 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
+
+.section-book {
+  @include background-gradient($color-primary-light, $color-primary-dark);
+  padding: 15rem;
+}
+
+.book-container {
+  background-image: linear-gradient(105deg, rgba($color-white, .9) 50%, transparent 50% 100%), url("../img/nat-10.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+  height: 50rem;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.book-form {
+  padding: 6rem;
+  width: 55%;
+}
+
+.form {
+  &__group {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 90%;
+    color: inherit;
+    font-size: 1.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    background-color: rgba($color-white, .9);
+    border: none;
+    border-radius: 2px;
+    border-bottom: 3px solid transparent;
+    transition: all .3s ease-out;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+      transition: all .3s ease-out;
+
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-gray-dark-2;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin: .7rem 0 0 2rem;
+    font-size: 1.2rem;
+    transition: all .3s ease-out;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-4rem);
+  }
+
+  &__radio {
+    &-group {
+      display: inline-block;
+      width: 49%;
+      margin-bottom: 3rem;
+    }
+
+    &-input {
+      opacity: 0;
+    }
+
+    &-input:checked ~ &-label &-button::after {
+      opacity: 1;
+    }
+
+    &-label {
+      cursor: pointer;
+
+      position: relative;
+      padding: 0 3rem;
+    }
+
+    &-button {
+      display: inline-block;
+      height: 3rem;
+      width: 3rem;
+      border: solid 5px $color-primary;
+      border-radius: 50%;
+
+      position: absolute;
+      top: -0.4rem;
+      left: -1.5rem;
+
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1.3rem;
+        width: 1.3rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $color-primary;
+        opacity: 0;
+        transition: all .3s ease-out;
+      }
+
+    }
+  }
+}
+

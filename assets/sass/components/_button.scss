@@ -4,6 +4,10 @@
 @import "../abstracts/variables";
 
 .btn {
+  border: none;
+  cursor: pointer;
+
+  &,
   &:link,
   &:visited {
     display: inline-block;
@@ -26,7 +30,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-0.5rem);
     box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
   }
@@ -55,7 +61,7 @@
     }
   }
 
-   &--green {
+  &--green {
     color: $color-white;
     background-color: $color-primary;
 
