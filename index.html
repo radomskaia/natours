@@ -16,6 +16,28 @@
     <title>Natours | Exciting tours for adventurous people</title>
 </head>
 <body>
+<div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            <li class="navigation__item"><a class="navigation__link" href="#section-about"><span>01</span> About Natous</a>
+            </li>
+            <li class="navigation__item"><a class="navigation__link" href="#section-features"><span>02</span> Your
+                benefits</a>
+            </li>
+            <li class="navigation__item"><a class="navigation__link" href="#section-tours"><span>03</span> Popular tours</a>
+            </li>
+            <li class="navigation__item"><a class="navigation__link" href="#section-stories"><span>04</span> Stories</a>
+            </li>
+            <li class="navigation__item"><a class="navigation__link" href="#section-book"><span>05</span> Book now</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 <header class="header ">
     <div class="header__logo-box">
         <img class="header__logo" src="assets/img/logo-white.png" alt="logo">
@@ -284,6 +306,20 @@
         </p>
     </div>
 </footer>
+<script>
+    // Получаем все элементы с классом navigation__link
+    var links = document.querySelectorAll('.navigation__link');
 
+    // Получаем чекбокс
+    var checkbox = document.getElementById('navi-toggle');
+
+    // Для каждого элемента с классом navigation__link добавляем обработчик события click
+    links.forEach(function (link) {
+        link.addEventListener('click', function () {
+            // Снимаем галочку с чекбокса
+            checkbox.checked = false;
+        });
+    });
+</script>
 </body>
 </html>
