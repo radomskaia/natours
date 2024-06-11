@@ -2,3 +2,60 @@
 @import "../abstracts/mixins";
 @import "../abstracts/placeholders";
 @import "../abstracts/variables";
+
+.footer {
+  background-color: $color-gray;
+  padding: 10rem 0;
+  color: $color-gray-light-1;
+  font-size: 1.4rem;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+    @include grid;
+    row-gap: 5rem;
+  }
+
+  &__logo {
+    grid-column: 1/-1;
+    width: 15rem;
+  }
+
+  &__nav {
+    justify-self: start;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid $color-gray-dark;
+
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      display: inline-block;
+      padding: 0 0.5rem;
+      background-color: $color-gray;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary-light;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      transform: scale(1.2) rotate(5deg);
+
+    }
+  }
+
+  &__copyright {
+    margin-left: 10rem;
+    padding-top: 2rem;
+    border-top: 1px solid $color-gray-dark;
+  }
+}
+
