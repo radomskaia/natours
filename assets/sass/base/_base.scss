@@ -1,3 +1,7 @@
+@import "../abstracts/functions";
+@import "../abstracts/mixins";
+@import "../abstracts/placeholders";
+@import "../abstracts/variables";
 
 *,
 *::before,
@@ -10,8 +14,27 @@
 html {
   // 1 rem = 10px
   font-size: 62.5%;
+scroll-behavior: smooth;
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 62.5%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
 }
 
 body {
   box-sizing: border-box;
+  padding: 3.0rem;
+
+  @include respond(tab-land) {
+    padding: 0;
+  }
 }

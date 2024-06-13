@@ -12,4 +12,7 @@
 
 .container {
   max-width: $max-width;
+    @include respond(tab-port) {
+    width: 100%;
+  }
 }

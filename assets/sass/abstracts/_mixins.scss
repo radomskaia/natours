@@ -1,4 +1,11 @@
-@mixin grid($col: 2, $gap: 6rem) {
+@mixin grid($col: 2, $gap: null) {
+  $default-gap: 6rem;
+  @include respond(tab-land) {
+    $default-gap: 5rem;
+  }
+
+  $gap: if($gap == null, $default-gap, $gap);
+
   display: grid;
   grid-template-columns: repeat($col, minmax(0, 120rem));
   column-gap: $gap;
@@ -11,8 +18,57 @@
   color: transparent;
 }
 
-@mixin background-gradient($color_1, $color_2, $url:'../img/example.jpg', $dir: right bottom) {
-  background-image: linear-gradient(to $dir, $color_1, $color_2), url($url);
+@mixin background-gradient($color_1, $color_2, $url:null, $dir: right bottom) {
+  @if $url == null {
+    background-image: linear-gradient(to #{$dir}, #{$color_1}, #{$color_2});
+  } @else {
+    background-image: linear-gradient(to #{$dir}, #{$color_1}, #{$color_2}), url(#{$url});
+  }
+
   background-size: cover;
   background-position: top;
+}
+
+@mixin padding-section($top_bottom:10rem) {
+  padding: $top_bottom 0;
+  @include respond(tab-land) {
+    $top_bottom: if($top_bottom > 10rem, $top_bottom * 0.7, 10rem);
+    padding: $top_bottom 2rem;
+  }
+
+
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content
+    }
+    //600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content
+    }
+    // 900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content
+    }
+    // 1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content
+    }
+    // 1800px
+  }
+
+}
+
+@include respond(phone) {
 }

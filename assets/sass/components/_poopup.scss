@@ -22,6 +22,7 @@
     top: 50%;
     left: 50%;
     width: 75%;
+    max-height: 95%;
     @include grid(3, 0);
     grid-template-rows: repeat(2, 1fr);
     margin: 0 auto;
@@ -32,11 +33,30 @@
 
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
+
+    @include respond(tab-land) {
+      width: 80%;
+    }
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 30rem 1fr;
+      width: 85%;
+    }
+
+    @include respond(phone) {
+      width: 95%;
+      grid-template-rows: 22rem 1fr;
+    }
   }
 
   &__img {
     width: 100%;
+    height: auto;
     align-self: stretch;
+    @include respond(tab-land) {
+      object-fit: cover;
+    }
 
     &:nth-child(1) {
       grid-column: 1/2;
@@ -46,6 +66,10 @@
     &:nth-child(2) {
       grid-column: 1/2;
       grid-row: 2/3;
+      @include respond(tab-port) {
+        grid-column: 2/3;
+        grid-row: 1/2;
+      }
     }
   }
 
@@ -59,16 +83,39 @@
     justify-content: center;
     align-items: flex-start;
 
+    @include respond(tab-port) {
+      grid-column: 1/-1;
+      grid-row: 2/-1;
+    }
+
+    @include respond(phone) {
+      padding: 2rem 3rem;
+      gap: 1rem;
+    }
+
+  }
+
+  .scroll {
+    max-height: 65%;
+    overflow: scroll;
+    margin-bottom: 4rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__text {
     font-size: 1.4rem;
-    margin-bottom: 4rem;
     column-count: 2;
     column-gap: 4rem;
     column-rule: 1px solid $color-gray-light-2;
     hyphens: auto;
     -webkit-hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+    }
+
   }
 
   &:target {
@@ -82,7 +129,7 @@
     }
   }
 
-    &__close {
+  &__close {
     &:link,
     &:visited {
       text-decoration: none;
