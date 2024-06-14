@@ -48,7 +48,8 @@
   }
 
   @include respond(phone) {
-    width: 80%;
+    min-width: 80%;
+    max-width: 40rem;
     margin: 0 auto;
     height: 100%;
 

@@ -740,7 +740,8 @@ body {
 }
 @media only screen and (max-width: 37.5em) {
   .img-box {
-    width: 80%;
+    min-width: 80%;
+    max-width: 40rem;
     margin: 0 auto;
     height: 100%;
   }
@@ -970,7 +971,6 @@ body {
 }
 .card__details {
   padding: 3rem;
-  font-size: 2rem;
 }
 .card__details ul {
   list-style: none;
