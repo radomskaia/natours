@@ -11,22 +11,11 @@
   @extend %flex-col;
   @extend %flex-center;
   gap: 8rem;
-
-  @include respond(phone) {
-    padding-bottom: 13rem;
-  }
 }
 
 .tours-box {
   width: 100%;
   @include grid(3);
-  @include respond(tab-port) {
-    grid-template-columns: repeat(auto-fill, minmax(26rem, 36rem));
-
-    column-gap: 4rem;
-    row-gap: 4rem;
-    justify-content: center;
-  }
 }
 
 .card {
@@ -37,13 +26,7 @@
 
   perspective: 150rem;
   -webkit-perspective: 150rem;
-  @include respond(tab-port) {
-    position: static;
-    height: auto;
 
-    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
-    border-radius: 3px;
-  }
 
   &:nth-child(1) {
     .card-picture,
@@ -77,11 +60,6 @@
     .card__heading-span {
       @include background-gradient(rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
     }
-
-    @include respond(tab-port) {
-      max-width: 36rem;
-      grid-column: 1/-1;
-    }
   }
 
   &-picture {
@@ -111,6 +89,7 @@
 
   &__details {
     padding: 3rem;
+    font-size: 2rem;
 
 
     & ul {
@@ -120,7 +99,6 @@
 
       li {
         padding: 1rem;
-        font-size: 1.5rem;
 
         &:not(:last-child) {
           border-bottom: 1px solid $color-gray-light-2;
@@ -142,39 +120,15 @@
     backface-visibility: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
-    @include respond(tab-port) {
-      position: static;
-      height: auto;
-    }
-
-    &--front {
-      @include respond(tab-port) {
-        padding-bottom: 2rem;
-      }
-    }
-
     &--back {
       @extend %flex-center, %flex-col;
       gap: 8rem;
       height: 100%;
       transform: rotateY(180deg);
 
-      @include respond(tab-port) {
-        transform: rotateY(0deg);
-        height: auto;
-        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-        padding-top: 15%;
-        padding-bottom: 4rem;
-        margin-top: -15%;
-        gap: 2rem;
-        justify-content: flex-start;
-
-      }
-
       .card__price-box {
         color: $color-white;
         text-transform: uppercase;
-        font-size: 1.4rem;
 
         &_value {
           font-size: 6rem;
@@ -188,18 +142,84 @@
   &:hover {
     & .card__side--front {
       transform: rotateY(-180deg);
-      @include respond(tab-port) {
-        transform: rotateY(0deg);
-      }
     }
 
     .card__side--back {
       transform: rotateY(0deg);
-      @include respond(tab-port) {
+    }
+  }
+}
+
+
+@include respond(tab-port) {
+  .section-tours {
+    padding-bottom: 13rem;
+  }
+
+  .tours-box {
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 36rem));
+    column-gap: 4rem;
+    row-gap: 4rem;
+    justify-content: center;
+  }
+
+  .card {
+    &:nth-child(3) {
+      max-width: 36rem;
+      grid-column: 1/-1;
+    }
+  }
+}
+
+@include respond(phone) {
+  &__details {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 56.25em), (hover: none) {
+  .card {
+    position: static;
+    height: auto;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    border-radius: 3px;
+
+    &__side {
+      position: static;
+      height: auto;
+
+      &--front {
+        padding-bottom: 2rem;
+      }
+
+      &--back {
+        transform: rotateY(0deg);
+        height: auto;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        padding-top: 15%;
+        padding-bottom: 4rem;
+        margin-top: -15%;
+        gap: 2rem;
+        justify-content: flex-start;
+
+        .card__price-box {
+          &_value {
+            font-size: 5rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .card__side--front {
+        transform: rotateY(0deg);
+      }
+
+      .card__side--back {
         transform: rotateY(0deg);
       }
     }
   }
 }
-
 

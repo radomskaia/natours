@@ -50,7 +50,7 @@
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
     box-shadow: 0 3rem 4rem rgba($color-black, 0.15);
-    @include respond(phone) {
+    @media (hover: none) {
         transform: translateY(0rem) scale(1);
   }
   }

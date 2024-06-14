@@ -5,13 +5,18 @@
 
 .header {
   height: 95vh;
-  @include background-gradient(rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8), '../img/hero.jpg');
+  @include background-gradient(rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8), '../img/hero-small.jpg');
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   position: relative;
   @extend %flex-col, %flex-center;
-   @include respond(tab-land) {
+  @include respond(tab-land) {
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (min-width: 125em) {
+    @include background-gradient(rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8), '../img/hero.jpg');
+  }
+
+
   @include respond(tab-port) {
     height: 65vh;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
