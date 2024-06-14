@@ -823,7 +823,7 @@ body {
     grid-column: 1/-1; } }
 
 @media only screen and (max-width: 37.5em) {
-  __details {
+  .card__details {
     padding: 1.5rem 3rem; } }
 
 @media only screen and (max-width: 56.25em), (hover: none) {

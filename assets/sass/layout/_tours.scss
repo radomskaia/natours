@@ -172,7 +172,7 @@
 }
 
 @include respond(phone) {
-  &__details {
+  .card__details {
     padding: 1.5rem 3rem;
   }
 }
