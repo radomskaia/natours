@@ -18,10 +18,18 @@
   left: 0;
   filter: opacity(.15);
 
+  @include respond(phone) {
+    @include background-gradient(rgba($color-white, 0.15), rgba($color-white, 0.15), '../img/screenshot.jpg');
+  }
+
   &__content {
     height: 100%;
     width: 100%;
     object-fit: cover;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
 
@@ -33,7 +41,7 @@
   gap: 8rem;
   @include respond(phone) {
     gap: 4rem;
-}
+  }
 }
 
 .story {
@@ -45,18 +53,18 @@
   padding: 6rem;
   position: relative;
 
-   @include respond(phone) {
+  @include respond(phone) {
     width: 100%;
-     transform: skewX(0);
-     padding: 4rem;
-}
-  & > * {
-    transform: skewX(12deg);
-     @include respond(phone) {
     transform: skewX(0);
-}
+    padding: 4rem;
   }
 
+  & > * {
+    transform: skewX(12deg);
+    @include respond(phone) {
+      transform: skewX(0);
+    }
+  }
 
 
   &-shape {
@@ -69,8 +77,8 @@
     shape-outside: circle(50% at 50% 50%);
     margin-right: 4rem;
     @include respond(phone) {
-    margin-right: 3rem;
-}
+      margin-right: 3rem;
+    }
 
     &__img {
       height: 100%;
@@ -111,7 +119,6 @@
 
     }
   }
-
 
 
 }
