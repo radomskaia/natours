@@ -8,7 +8,7 @@ Natours is a beautiful and responsive tourism website designed to showcase vario
 
 ## Demo
 
-Check out the live demo of the project [here](https://natours-aradomskaia.netlify.app/).
+Check out the live demo of the project [here](https://radomskaia.github.io/natours/).
 
 ## Features
 
